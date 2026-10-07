@@ -1,1 +1,114 @@
 # ❤️ Heart Disease Prediction Using Machine Learning
+
+
+An end-to-end Machine Learning project that predicts the possibility of heart disease based on patient health parameters and provides an interactive Streamlit application.
+
+## 📌 Project Overview
+
+This project covers the complete Machine Learning workflow:
+
+**Data Loading → EDA → Data Cleaning → Preprocessing → Train-Test Split → Logistic Regression → Evaluation → Model Saving → Streamlit Deployment**
+
+The application allows users to enter patient information and receive a heart disease prediction along with probability.
+
+## 🖥️ Application Preview
+
+![Heart Disease Prediction App](assets/heart-disease-app-page1.png)
+
+## 🎯 Objective
+
+The main objective of this project is to build a binary classification model that predicts:
+
+- **0 → No Heart Disease**
+- **1 → Heart Disease**
+
+This project is created for educational and demonstration purposes.
+
+## 📊 Dataset Features
+
+The dataset contains the following patient-related features:
+
+| Feature | Description |
+|---|---|
+| Age | Patient age |
+| Sex | Patient sex |
+| ChestPainType | Type of chest pain |
+| RestingBP | Resting blood pressure |
+| Cholesterol | Cholesterol level |
+| FastingBS | Fasting blood sugar |
+| RestingECG | Resting ECG result |
+| MaxHR | Maximum heart rate |
+| ExerciseAngina | Exercise-induced angina |
+| Oldpeak | ST depression value |
+| ST_Slope | Slope of the ST segment |
+| HeartDisease | Target variable |
+
+## 🔎 1. Data Loading and Exploratory Data Analysis
+
+The dataset was loaded using **Pandas**.
+
+During EDA, I checked:
+
+- Dataset shape
+- Dataset information
+- Statistical summary
+- Missing values
+- Duplicate records
+- Categorical values
+- Target distribution
+
+I also used **Matplotlib** and **Seaborn** for visualization.
+
+The visualizations included:
+
+- Histograms
+- Count plots
+- Boxplots
+- Violin plots
+- Correlation heatmap
+
+## 🧹 2. Data Cleaning
+
+During EDA, invalid **Cholesterol = 0** values were identified.
+
+The mean of valid non-zero Cholesterol values was calculated and used to replace the invalid values.
+
+This helped improve the quality of the data before model training.
+
+## 🔄 3. Data Preprocessing
+
+The dataset contains categorical features such as:
+
+- Sex
+- ChestPainType
+- RestingECG
+- ExerciseAngina
+- ST_Slope
+
+These categorical features were converted into numerical features using **One-Hot Encoding**.
+
+## ✂️ 4. Train-Test Split
+
+The dataset was separated into:
+
+- **X → Input Features**
+- **y → Target Variable**
+
+The data was divided into:
+
+- **80% Training Data**
+- **20% Testing Data**
+
+using `train_test_split()`.
+
+## 🤖 5. Machine Learning Model
+
+I selected **Logistic Regression** because this is a binary classification problem.
+
+The model was trained using the training dataset.
+
+```python
+from sklearn.linear_model import LogisticRegression
+
+clf = LogisticRegression(random_state=0)
+clf.fit(X_train, y_train)
